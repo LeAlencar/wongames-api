@@ -44,8 +44,13 @@ module.exports = {
 
     await strapi.services.publisher.create({
       name: products[0].publisher,
-      slug: slugify(products[0].publisher)
-    })
+      slug: slugify(products[0].publisher).toLowerCase(),
+    });
+
+    await strapi.services.developers.create({
+      name: products[0].developer,
+      slug: slugify(products[0].developer).toLowerCase(),
+    });
 
     //console.log(await getGameInfo(products[1].slug));
   },
